@@ -286,6 +286,9 @@ ZEND_BEGIN_ARG_INFO_EX(arginfo_gnupg_decryptverify_method, 0, 0, 2)
 ZEND_END_ARG_INFO()
 /* }}} */
 
+ZEND_BEGIN_ARG_INFO_EX(arginfo_void, 0, 0, 0)
+ZEND_END_ARG_INFO()
+
 #define PHP_GNUPG_FALIAS(_name, _arginfo) \
 	PHP_FALIAS(_name, gnupg_ ## _name, _arginfo)
 
@@ -294,17 +297,17 @@ phpc_function_entry gnupg_methods[] = {
 	PHP_ME(gnupg, __construct, arginfo_gnupg_init, ZEND_ACC_CTOR|ZEND_ACC_PUBLIC)
 	PHP_GNUPG_FALIAS(keyinfo,           arginfo_gnupg_keyinfo_method)
 	PHP_GNUPG_FALIAS(verify,            arginfo_gnupg_verify_method)
-	PHP_GNUPG_FALIAS(getengineinfo,     NULL)
-	PHP_GNUPG_FALIAS(geterror,          NULL)
-	PHP_GNUPG_FALIAS(clearsignkeys,     NULL)
-	PHP_GNUPG_FALIAS(clearencryptkeys,  NULL)
-	PHP_GNUPG_FALIAS(cleardecryptkeys,  NULL)
+	PHP_GNUPG_FALIAS(getengineinfo,     arginfo_void)
+	PHP_GNUPG_FALIAS(geterror,          arginfo_void)
+	PHP_GNUPG_FALIAS(clearsignkeys,     arginfo_void)
+	PHP_GNUPG_FALIAS(clearencryptkeys,  arginfo_void)
+	PHP_GNUPG_FALIAS(cleardecryptkeys,  arginfo_void)
 	PHP_GNUPG_FALIAS(setarmor,          arginfo_gnupg_armor_method)
 	PHP_GNUPG_FALIAS(encrypt,           arginfo_gnupg_text_method)
 	PHP_GNUPG_FALIAS(decrypt,           arginfo_gnupg_enctext_method)
 	PHP_GNUPG_FALIAS(export,            arginfo_gnupg_pattern_method)
 	PHP_GNUPG_FALIAS(import,            arginfo_gnupg_key_method)
-	PHP_GNUPG_FALIAS(getprotocol,       NULL)
+	PHP_GNUPG_FALIAS(getprotocol,       arginfo_void)
 	PHP_GNUPG_FALIAS(setsignmode,       arginfo_gnupg_signmode_method)
 	PHP_GNUPG_FALIAS(sign,              arginfo_gnupg_text_method)
 	PHP_GNUPG_FALIAS(encryptsign,       arginfo_gnupg_text_method)
